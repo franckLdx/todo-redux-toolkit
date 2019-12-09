@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 
-import { reducer as todos } from '../features/todoModel'
+import { reducer as todos } from '../features/TodoModel'
 
 const reducer = combineReducers({ todos });
 

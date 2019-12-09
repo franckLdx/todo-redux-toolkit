@@ -11,12 +11,12 @@ export const TodoList: React.SFC = () => {
       direction="column"
       justifyContent="between"
       color="purple"
+      marginTop={5}
       paddingX={5}
       paddingY={2}
-      marginTop={5}
     >
       {todos.map(todo =>
-        <Todo key={todo.id} label={todo.description} done={todo.done} />
+        <Todo key={todo.id} id={todo.id} />
       )}
     </Box>
   );

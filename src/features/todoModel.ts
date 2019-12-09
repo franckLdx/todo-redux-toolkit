@@ -7,7 +7,7 @@ const initialState: Todos = [
   { id: 3, description: 'Fourth', done: false },
 ];
 
-const slice = createSlice({
+export const slice = createSlice({
   name: 'TODO',
   initialState,
   reducers: {
@@ -31,7 +31,7 @@ const slice = createSlice({
   },
 });
 
-export const actions = slice.actions;
+export const { add, remove, setDone } = slice.actions;
 export const reducer = slice.reducer;
 
 interface TodoId { id: number };
