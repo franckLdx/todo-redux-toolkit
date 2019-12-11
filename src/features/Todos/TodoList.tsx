@@ -1,23 +1,19 @@
 import React from 'react';
 import { Todo } from './Todo';
-import { Box } from 'gestalt';
 import { useSelector } from 'react-redux';
-import { todosSelect } from '../state/selectors';
+import { todosSelect } from '../../state/selectors';
+import { AppContainer } from '../../components/AppContainer';
 
 export const TodoList: React.SFC = () => {
   const todos = useSelector(todosSelect);
   return (
-    <Box
+    <AppContainer
       direction="column"
-      justifyContent="between"
-      color="purple"
       marginTop={5}
-      paddingX={5}
-      paddingY={2}
     >
       {todos.map(todo =>
         <Todo key={todo.id} id={todo.id} />
       )}
-    </Box>
+    </AppContainer>
   );
 }
