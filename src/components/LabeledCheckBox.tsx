@@ -1,8 +1,6 @@
-import React, { useCallback, SyntheticEvent, useContext } from 'react';
+import React, { useCallback, SyntheticEvent } from 'react';
 import { Box, Checkbox, Label, Text, BoxProps } from 'gestalt';
 import styled from 'styled-components';
-
-type LabelContainerProps = Pick<BoxProps, 'color' | 'shape' | 'margin'>
 
 type Event = {
   event: SyntheticEvent<HTMLInputElement>,
@@ -14,7 +12,7 @@ type CheckBoxProps = {
   text: string;
   checked: boolean;
   onChange: (id: string, checked: boolean) => void;
-} & LabelContainerProps;
+} & Exclude<BoxProps, 'direction' | 'display'>;
 
 const LabelContainer = styled(Box).attrs(props => {
   const { theme, ...boxProps } = props;

@@ -1,14 +1,11 @@
 import { Box, BoxProps } from 'gestalt';
 import styled from 'styled-components';
 
-export const AppContainer = styled(Box).attrs(props => {
+export const DefaultContainer = styled(Box).attrs(props => {
   const { theme, ...boxProps } = props;
   return {
     display: 'flex',
-    justifyContent: 'between',
-    color: theme.container.color,
-    paddingX: 2,
-    paddingY: 2,
+    ...theme.container,
     ...boxProps
   } as BoxProps;
 })``;

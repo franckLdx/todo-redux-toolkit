@@ -2,18 +2,18 @@ import React from 'react';
 import { Todo } from './Todo';
 import { useSelector } from 'react-redux';
 import { todosSelect } from '../../state/selectors';
-import { AppContainer } from '../../components/AppContainer';
+import { DefaultContainer } from '../../components/DefaultContainer';
 
 export const TodoList: React.SFC = () => {
   const todos = useSelector(todosSelect);
   return (
-    <AppContainer
+    <DefaultContainer
       direction="column"
       marginTop={5}
     >
       {todos.map(todo =>
         <Todo key={todo.id} id={todo.id} />
       )}
-    </AppContainer>
+    </DefaultContainer>
   );
 }

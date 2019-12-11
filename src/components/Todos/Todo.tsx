@@ -26,7 +26,6 @@ export const Todo: React.SFC<TodoProps> = React.memo((props) => {
       text={todo.description}
       onChange={change}
       shape="rounded"
-      color="lightGray"
     />
   );
 });

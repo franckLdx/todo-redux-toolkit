@@ -1,9 +1,12 @@
 import { DefaultTheme } from "styled-components";
 
-export const appTheme: DefaultTheme = {
+export const purpleTheme: DefaultTheme = {
   container: {
-    justifyContent: "around",
+    justifyContent: "between",
     color: "purple",
+    wrap: true,
+    paddingX: 2,
+    paddingY: 2,
   },
   label: {
     paddingX: 2,
@@ -11,4 +14,4 @@ export const appTheme: DefaultTheme = {
     shape: "rounded",
     color: "lightGray",
   }
-}
+};
