@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Box } from 'gestalt';
-import { useSelector } from 'react-redux';
-import { LabeledCheckBox } from '../../components/LabeledCheckBox';
+import { useSelector, useDispatch } from 'react-redux';
 import { visibilityFilterSelect } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
-import { VisibilityFilterValues } from '../../components/VisibilityFilter/VisibiltyFilterModel';
+import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterModel';
+import { LabeledRadioButton } from '../../components/LabeledRadioButton';
 
 export const VisibilityFilter: React.FC = () => {
   const filter = useSelector(visibilityFilterSelect)
-  const onChange = () => { }
+  const dispatch = useDispatch();
+  const onChange = useCallback(
+    (newFilter: any) => dispatch(setVisibilityFilter({ visibilityFilter: newFilter })),
+    [dispatch]
+  );
   return (
     <Box
       display="flex"
@@ -36,14 +40,13 @@ const filters: Array<VisibilityFilterValues> = ["ALL", "DONE", "UNDONE"];
 interface VisibilityLabelProps {
   label: VisibilityFilterValues;
   filter: VisibilityFilterValues;
-  onChange: () => void;
+  onChange: (visibilityFilter: any) => void;
 }
 
-const VisibilityCheck: React.FC<VisibilityLabelProps> = ({ label, filter, onChange }) =>
-  <LabeledCheckBox
-    key={filter} id={filter}
+const VisibilityCheck: React.FC<VisibilityLabelProps> = React.memo(({ label, filter, onChange }) =>
+  <LabeledRadioButton
+    id={label}
     text={label}
-    // marginLeft={3} marginRight={3}
     smMarginLeft={0} smMarginRight={0}
     mdMarginLeft={1} mdMarginRight={1}
     marginLeft={3} marginRight={3}
@@ -51,3 +54,4 @@ const VisibilityCheck: React.FC<VisibilityLabelProps> = ({ label, filter, onChan
     onChange={onChange}
     checked={label === filter}
   />
+);

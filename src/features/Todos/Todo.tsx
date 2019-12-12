@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDone } from './TodoModel';
 import { todoSelect } from '../../state/selectors';
 import { AppState } from '../../state/store';
-import { LabeledCheckBox } from '../../components/LabeledCheckBox';
+import { LabeledCheckedButton } from '../../components/LabeledCheckedButton';
 
 interface TodoProps {
   id: number;
@@ -20,7 +20,7 @@ export const Todo: React.SFC<TodoProps> = React.memo((props) => {
     return <React.Fragment />;
   }
   return (
-    <LabeledCheckBox
+    <LabeledCheckedButton
       id={todo.id.toString()}
       checked={todo.done}
       text={todo.description}
