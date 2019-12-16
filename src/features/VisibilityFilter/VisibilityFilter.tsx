@@ -3,7 +3,7 @@ import { Box } from 'gestalt';
 import { useSelector, useDispatch } from 'react-redux';
 import { visibilityFilterSelect } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
-import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterModel';
+import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterState';
 import { LabeledRadioButton } from '../../components/LabeledRadioButton';
 
 export const VisibilityFilter: React.FC = () => {

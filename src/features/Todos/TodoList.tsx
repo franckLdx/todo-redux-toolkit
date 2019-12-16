@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Todo } from './Todo';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { todosSelect } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
+import { Todos, loadTodos } from './TodoState';
 
-export const TodoList: React.SFC = () => {
-  const todos = useSelector(todosSelect);
+interface TodoListProps {
+  todos: Todos;
+  loadTodos: () => void;
+}
+export const TodoList: React.FC<TodoListProps> = ({ todos, loadTodos }) => {
+  useEffect(() => loadTodos(), [loadTodos]);
   return (
     <DefaultContainer
       direction="column"
@@ -17,3 +22,15 @@ export const TodoList: React.SFC = () => {
     </DefaultContainer>
   );
 }
+
+const ConnectedTodoList: React.FC = () => {
+  const todos = useSelector(todosSelect);
+  const dispatch = useDispatch();
+  const loadTodoList = useCallback(
+    () => { dispatch(loadTodos()) },
+    [dispatch]
+  );
+  return <TodoList todos={todos} loadTodos={loadTodoList} />
+}
+
+export default ConnectedTodoList;

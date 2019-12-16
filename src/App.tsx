@@ -1,5 +1,5 @@
 import React from 'react';
-import { TodoList } from './features/Todos/TodoList';
+import TodoList from './features/Todos/TodoList';
 import { VisibilityFilter } from './features/VisibilityFilter/VisibilityFilter';
 import { ThemeProvider } from 'styled-components';
 import { purpleTheme } from './components/theme';
