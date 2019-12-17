@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { Todo } from './Todo';
 import { useSelector, useDispatch } from 'react-redux';
-import { todosSelect } from '../../state/selectors';
+import { getFilteredTodos } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
 import { Todos, loadTodos } from './TodoState';
 
@@ -24,7 +24,7 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, loadTodos }) => {
 }
 
 const ConnectedTodoList: React.FC = () => {
-  const todos = useSelector(todosSelect);
+  const todos = useSelector(getFilteredTodos);
   const dispatch = useDispatch();
   const loadTodoList = useCallback(
     () => { dispatch(loadTodos()) },

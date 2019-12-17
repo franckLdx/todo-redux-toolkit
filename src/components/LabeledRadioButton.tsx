@@ -17,7 +17,7 @@ const useChangeCallback = (id: string, onChange: OnChange) =>
     [onChange, id]
   );
 
-export const LabeledRadioButton: React.FC<RadioButtonProps> = ({ id, text, checked, onChange, ...labelContainerProps }) => {
+export const LabeledRadioButton: React.FC<RadioButtonProps> = React.memo(({ id, text, checked, onChange, ...labelContainerProps }) => {
   const changeCallback = useChangeCallback(id, onChange);
   return (
     <LabeledButtonContainer {...labelContainerProps}>
@@ -30,4 +30,4 @@ export const LabeledRadioButton: React.FC<RadioButtonProps> = ({ id, text, check
       <LabelOfButton text={text} />
     </LabeledButtonContainer>
   );
-}
+});

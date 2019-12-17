@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import { Box } from 'gestalt';
 import { useSelector, useDispatch } from 'react-redux';
-import { visibilityFilterSelect } from '../../state/selectors';
+import { getVisibilityFilter } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
 import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterState';
 import { LabeledRadioButton } from '../../components/LabeledRadioButton';
 
 export const VisibilityFilter: React.FC = () => {
-  const filter = useSelector(visibilityFilterSelect)
+  const filter = useSelector(getVisibilityFilter)
   const dispatch = useDispatch();
   const onChange = useCallback(
     (newFilter: any) => dispatch(setVisibilityFilter({ visibilityFilter: newFilter })),
@@ -43,7 +43,7 @@ interface VisibilityLabelProps {
   onChange: (visibilityFilter: any) => void;
 }
 
-const VisibilityCheck: React.FC<VisibilityLabelProps> = React.memo(({ label, filter, onChange }) =>
+const VisibilityCheck: React.FC<VisibilityLabelProps> = ({ label, filter, onChange }) =>
   <LabeledRadioButton
     id={label}
     text={label}
@@ -53,5 +53,4 @@ const VisibilityCheck: React.FC<VisibilityLabelProps> = React.memo(({ label, fil
     shape="rounded"
     onChange={onChange}
     checked={label === filter}
-  />
-);
+  />;

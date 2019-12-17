@@ -18,9 +18,11 @@ export const LabeledButtonContainer = styled(Box).attrs(props => {
 })``;
 
 interface LabelOfButtonProps { text: string };
-export const LabelOfButton: React.FC<LabelOfButtonProps> = ({ text }) =>
+
+export const LabelOfButton: React.FC<LabelOfButtonProps> = React.memo(({ text }) =>
   <Label htmlFor={'check'}>
     <Box paddingX={2}>
       <Text>{text}</Text>
     </Box>
   </Label>
+);
