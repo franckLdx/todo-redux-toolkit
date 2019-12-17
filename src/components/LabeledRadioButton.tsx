@@ -22,12 +22,13 @@ export const LabeledRadioButton: React.FC<RadioButtonProps> = React.memo(({ id, 
   return (
     <LabeledButtonContainer {...labelContainerProps}>
       <RadioButton
-        id={'check'}
+        id={id}
+        name={id}
         checked={checked}
         value={text}
         onChange={changeCallback}
       />
-      <LabelOfButton text={text} />
+      <LabelOfButton id={id} text={text} />
     </LabeledButtonContainer>
   );
 });

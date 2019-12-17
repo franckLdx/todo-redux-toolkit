@@ -10,7 +10,7 @@ export const VisibilityFilter: React.FC = () => {
   const filter = useSelector(getVisibilityFilter)
   const dispatch = useDispatch();
   const onChange = useCallback(
-    (newFilter: any) => dispatch(setVisibilityFilter({ visibilityFilter: newFilter })),
+    (newFilter: any) => { dispatch(setVisibilityFilter({ visibilityFilter: newFilter })) },
     [dispatch]
   );
   return (

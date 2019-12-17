@@ -17,10 +17,10 @@ export const LabeledButtonContainer = styled(Box).attrs(props => {
   } as BoxProps;
 })``;
 
-interface LabelOfButtonProps { text: string };
+interface LabelOfButtonProps { id: string, text: string };
 
-export const LabelOfButton: React.FC<LabelOfButtonProps> = React.memo(({ text }) =>
-  <Label htmlFor={'check'}>
+export const LabelOfButton: React.FC<LabelOfButtonProps> = React.memo(({ id, text }) =>
+  <Label htmlFor={id}>
     <Box paddingX={2}>
       <Text>{text}</Text>
     </Box>

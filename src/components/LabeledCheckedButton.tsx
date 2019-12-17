@@ -19,11 +19,11 @@ export const LabeledCheckedButton: React.FC<CheckedButtonProps> = ({ id, text, c
   return (
     <LabeledButtonContainer {...labelContainerProps}>
       <Checkbox
-        id={'check'}
+        id={id}
         checked={checked}
         onChange={changeCallback}
       />
-      <LabelOfButton text={text} />
+      <LabelOfButton id={id} text={text} />
     </LabeledButtonContainer>
   );
 }
