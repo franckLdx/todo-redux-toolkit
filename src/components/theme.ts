@@ -15,3 +15,5 @@ export const purpleTheme: DefaultTheme = {
     color: "lightGray",
   }
 };
+
+export default purpleTheme;

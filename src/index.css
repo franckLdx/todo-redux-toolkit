@@ -2,3 +2,12 @@ body {
   margin: 0;
   background-color: blueviolet;
 }
+
+#AppWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: calc(100% - 10px);
+}

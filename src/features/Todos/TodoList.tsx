@@ -13,8 +13,14 @@ export const TodoList: React.FC<TodoListProps> = ({ todos, loadTodos }) => {
   useEffect(() => loadTodos(), [loadTodos]);
   return (
     <DefaultContainer
+      shape="roundedLeft"
       direction="column"
       marginTop={5}
+      width="300px"
+      wrap={false}
+      fit={true}
+      overflow="scrollY"
+      height="100%"
     >
       {todos.map(todo =>
         <Todo key={todo.id} id={todo.id} />
