@@ -21,7 +21,7 @@ interface LabelOfButtonProps { id: string, text: string };
 
 export const LabelOfButton: React.FC<LabelOfButtonProps> = React.memo(({ id, text }) =>
   <Label htmlFor={id}>
-    <Box paddingX={2}>
+    <Box flex="grow" paddingX={2}>
       <Text>{text}</Text>
     </Box>
   </Label>

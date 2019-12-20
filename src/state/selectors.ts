@@ -2,9 +2,12 @@ import { AppState } from "./store";
 import { createSelector } from "@reduxjs/toolkit";
 
 export const getAllTodos = (state: AppState) => state.todosState.todos;
+
 export const getTodoById = (state: AppState, id: number) => state.todosState.todos.find(todo => todo.id === id);
 
 export const getVisibilityFilter = (state: AppState) => state.visibilityFilter.filter
+
+export const getLoadStatus = (state: AppState) => state.todosState.status
 
 export const getFilteredTodos = createSelector(
   [getAllTodos, getVisibilityFilter], (todos, filter) => {

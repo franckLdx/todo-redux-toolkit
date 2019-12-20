@@ -12,10 +12,15 @@ export const slice = createSlice({
       done: boolean
     }>) {
       const todo = state.todos.find(todo => todo.id === action.payload.id);
-      if (todo) { todo.done = action.payload.done; }
+      if (todo) {
+        todo.done = action.payload.done;
+      }
     },
     remove(state, action: PayloadAction<{ id: number }>) {
       state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
+    },
+    setLoadStatus(state, action: PayloadAction<Status>) {
+      state.status = action.payload;
     },
     setLoaded(state, action: PayloadAction<{ todos: Todos }>) {
       state.status = 'LOADED';
@@ -24,7 +29,7 @@ export const slice = createSlice({
   },
 });
 
-export const { remove, setDone, setLoaded } = slice.actions;
+export const { remove, setDone, setLoaded, setLoadStatus } = slice.actions;
 export const reducer = slice.reducer;
 
 type Status = "INIT" | "LOADING" | "ERROR" | "LOADED";
@@ -40,7 +45,12 @@ export type Todos = Array<Todo>;
 
 export function loadTodos(): AppThunk {
   return async (dispatch, _, { restApiService }) => {
-    const todos = await restApiService.loadTodos();
-    dispatch(setLoaded({ todos }));
+    dispatch(setLoadStatus("LOADING"));
+    try {
+      const todos = await restApiService.loadTodos();
+      dispatch(setLoaded({ todos }));
+    } catch (err) {
+      dispatch(setLoadStatus("ERROR"));
+    }
   }
 }

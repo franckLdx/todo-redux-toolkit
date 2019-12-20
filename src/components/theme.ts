@@ -4,6 +4,7 @@ export const purpleTheme: DefaultTheme = {
   container: {
     justifyContent: "between",
     color: "purple",
+    shape: "rounded",
     wrap: true,
     paddingX: 2,
     paddingY: 2,
