@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDone } from './TodoState';
+import { setDone } from './TodoSlice';
 import { getTodoById } from '../../state/selectors';
 import { AppState } from '../../state/store';
 import { LabeledCheckedButton } from '../../components/LabeledCheckedButton';

@@ -1,8 +1,8 @@
 import { configureStore, combineReducers, Action, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { ThunkAction } from 'redux-thunk';
 
-import { reducer as todosState } from '../features/Todos/TodoState'
-import { reducer as visibilityFilter } from '../features/VisibilityFilter/VisibiltyFilterState'
+import { reducer as todosState } from '../features/Todos/TodoSlice'
+import { reducer as visibilityFilter } from '../features/VisibilityFilter/VisibiltyFilterSlice'
 import { restApiService } from '../services/reatApiFilter';
 
 const reducer = combineReducers({ todosState, visibilityFilter });

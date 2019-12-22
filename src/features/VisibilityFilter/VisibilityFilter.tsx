@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { getVisibilityFilter } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
-import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterState';
+import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterSlice';
 import { VisibilityCheck } from './VisibilityCheck';
 
 interface VisibilityFilterProps {

@@ -3,7 +3,7 @@ import { Todo } from './Todo';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilteredTodos, getLoadStatus } from '../../state/selectors';
 import { DefaultContainer } from '../../components/DefaultContainer';
-import { Todos, loadTodos } from './TodoState';
+import { Todos, loadTodos } from './TodoSlice';
 import styled from 'styled-components';
 import { LabelledSpinner } from '../../components/LabelledSpinner';
 import { Message } from '../../components/Message';

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Todo, Todos } from '../features/Todos/TodoState';
+import { Todo, Todos } from '../features/Todos/TodoSlice';
 
 const url = 'https://fakerestapi.azurewebsites.net/api';
 

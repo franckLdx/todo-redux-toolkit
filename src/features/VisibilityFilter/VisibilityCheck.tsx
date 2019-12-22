@@ -1,5 +1,5 @@
 import React from 'react';
-import { VisibilityFilterValues } from './VisibiltyFilterState';
+import { VisibilityFilterValues } from './VisibiltyFilterSlice';
 import { LabeledRadioButton } from '../../components/LabeledRadioButton';
 
 interface VisibilityCheckProps {
