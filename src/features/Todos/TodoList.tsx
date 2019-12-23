@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Todo } from './Todo';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilteredTodos, getLoadStatus } from '../../state/selectors';
-import { DefaultContainer } from '../../components/DefaultContainer';
+import { getFilteredTodos, getLoadStatus } from '../../app/selectors';
+import { DefaultContainer } from '../../common/Containers/DefaultContainer';
 import { Todos, loadTodos } from './TodoSlice';
 import styled from 'styled-components';
-import { LabelledSpinner } from '../../components/LabelledSpinner';
-import { Message } from '../../components/Message';
+import { LabelledSpinner } from '../../common/LabelledSpinner';
+import { Message } from '../../common/Message';
 
 interface TodoListProps {
   todos: Todos;

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppThunk } from "../../state/store";
+import { AppThunk } from "../../app/store";
 
 const initialState: TodosState = { status: "INIT", todos: [] };
 
@@ -7,7 +7,7 @@ export const slice = createSlice({
   name: 'TODO',
   initialState,
   reducers: {
-    setDone(state, action: PayloadAction<{
+    updated(state, action: PayloadAction<{
       id: number,
       done: boolean
     }>) {
@@ -16,20 +16,23 @@ export const slice = createSlice({
         todo.done = action.payload.done;
       }
     },
-    remove(state, action: PayloadAction<{ id: number }>) {
+    removed(state, action: PayloadAction<{ id: number }>) {
       state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
     },
-    setLoadStatus(state, action: PayloadAction<Status>) {
-      state.status = action.payload;
+    loading(state) {
+      state.status = 'LOADING';
     },
-    setLoaded(state, action: PayloadAction<{ todos: Todos }>) {
+    loaded(state, action: PayloadAction<{ todos: Todos }>) {
       state.status = 'LOADED';
       state.todos = action.payload.todos;
+    },
+    loadError(state) {
+      state.status = 'ERROR';
     }
   },
 });
 
-export const { remove, setDone, setLoaded, setLoadStatus } = slice.actions;
+export const { loading, loaded, loadError, updated, removed } = slice.actions;
 export const reducer = slice.reducer;
 
 type Status = "INIT" | "LOADING" | "ERROR" | "LOADED";
@@ -45,12 +48,12 @@ export type Todos = Array<Todo>;
 
 export function loadTodos(): AppThunk {
   return async (dispatch, _, { restApiService }) => {
-    dispatch(setLoadStatus("LOADING"));
+    dispatch(loading());
     try {
       const todos = await restApiService.loadTodos();
-      dispatch(setLoaded({ todos }));
+      dispatch(loaded({ todos }));
     } catch (err) {
-      dispatch(setLoadStatus("ERROR"));
+      dispatch(loadError());
     }
   }
 }

@@ -12,11 +12,11 @@ const slice = createSlice({
   name: 'VISIBILITY',
   initialState: initialState,
   reducers: {
-    setVisibilityFilter(state, action: PayloadAction<{ visibilityFilter: VisibilityFilterValues }>) {
+    changed(state, action: PayloadAction<{ visibilityFilter: VisibilityFilterValues }>) {
       state.filter = action.payload.visibilityFilter;
     }
   }
 });
 
 export const reducer = slice.reducer;
-export const { setVisibilityFilter } = slice.actions;
+export const { changed } = slice.actions;

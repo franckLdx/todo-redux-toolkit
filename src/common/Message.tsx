@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultContainer } from './DefaultContainer';
+import { DefaultContainer } from './Containers/DefaultContainer';
 import { Text } from 'gestalt';
 
 interface MessageProps {

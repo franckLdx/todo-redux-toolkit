@@ -3,7 +3,7 @@ import { Todo, Todos } from '../features/Todos/TodoSlice';
 
 const url = 'https://fakerestapi.azurewebsites.net/api';
 
-export const restApiService = {
+export default {
   async loadTodos(): Promise<Todos> {
     const response = await axios.get(`${url}/Activities`);
     return response.data.map(mapToDo);

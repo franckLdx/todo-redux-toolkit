@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setDone } from './TodoSlice';
-import { getTodoById } from '../../state/selectors';
-import { AppState } from '../../state/store';
-import { LabeledCheckedButton } from '../../components/LabeledCheckedButton';
+import { updated } from './TodoSlice';
+import { getTodoById } from '../../app/selectors';
+import { AppState } from '../../app/store';
+import { LabeledCheckedButton } from '../../common/LabeledCheckedButton';
 
 interface TodoProps {
   id: number;
@@ -13,7 +13,7 @@ export const Todo: React.SFC<TodoProps> = React.memo((props) => {
   const todo = useSelector((state: AppState) => getTodoById(state, props.id));
   const dispatch = useDispatch();
   const change = useCallback(
-    (_id: string, checked: boolean) => dispatch(setDone({ id: props.id, done: checked })),
+    (_id: string, checked: boolean) => dispatch(updated({ id: props.id, done: checked })),
     [props.id, dispatch]
   );
   if (!todo) {

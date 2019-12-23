@@ -1,6 +1,6 @@
 import React from 'react';
 import { Spinner, Text, Box } from 'gestalt';
-import { DefaultContainer } from './DefaultContainer';
+import { DefaultContainer } from './Containers/DefaultContainer';
 
 interface LoadingProps {
   msg?: string;

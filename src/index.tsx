@@ -5,7 +5,7 @@ import './index.css';
 import 'gestalt/dist/gestalt.css';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import { store } from './state/store';
+import { store } from './app/store';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibilityFilter } from '../../state/selectors';
-import { DefaultContainer } from '../../components/DefaultContainer';
-import { VisibilityFilterValues, setVisibilityFilter } from './VisibiltyFilterSlice';
+import { getVisibilityFilter } from '../../app/selectors';
+import { DefaultContainer } from '../../common/Containers/DefaultContainer';
+import { VisibilityFilterValues, changed } from './VisibiltyFilterSlice';
 import { VisibilityCheck } from './VisibilityCheck';
 
 interface VisibilityFilterProps {
@@ -29,7 +29,7 @@ const ConnectedVisibilityFilter: React.FC = () => {
   const filter = useSelector(getVisibilityFilter)
   const dispatch = useDispatch();
   const onChange = useCallback(
-    (newFilter: any) => { dispatch(setVisibilityFilter({ visibilityFilter: newFilter })) },
+    (newFilter: any) => { dispatch(changed({ visibilityFilter: newFilter })) },
     [dispatch]
   );
   return <VisibilityFilter filter={filter} onChange={onChange} />;
