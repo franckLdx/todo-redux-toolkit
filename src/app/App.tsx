@@ -1,8 +1,8 @@
 import React from 'react';
-import TodoList from './features/Todos/TodoList';
-import VisibilityFilter from './features/VisibilityFilter/VisibilityFilter';
+import TodoList from '../features/Todos/TodoList';
+import VisibilityFilter from '../features/VisibilityFilter/VisibilityFilter';
 import { ThemeProvider } from 'styled-components';
-import purpleTheme from './common/theme/theme';
+import purpleTheme from '../common/theme/theme';
 import { Box } from 'gestalt';
 
 const App: React.FC = () => {

@@ -10,4 +10,4 @@ const customizedThunk = getDefaultMiddleware({
   },
 })
 
-export default [...customizedThunk];
+export default customizedThunk;
